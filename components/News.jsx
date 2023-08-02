@@ -13,13 +13,13 @@ const News = ({ author, urlToImage, publishedAt, title, description }) => {
       </View>
       <View>
         <Text style={styles.Title}>{title}</Text>
+        <Text>{`${description.substring(0, 200)}..`}</Text>
         <View style={styles.By}>
           <Text style={styles.otherTxt}>By: {author}</Text>
           <Text style={styles.otherTxt}>
             {new Date(publishedAt).toDateString()}
           </Text>
         </View>
-        <Text>{`${description.substring(0, 200)}..`}</Text>
       </View>
     </View>
   );

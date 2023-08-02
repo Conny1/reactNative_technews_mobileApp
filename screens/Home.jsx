@@ -19,7 +19,12 @@ const Home = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          `https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=f8f710d32e374f64bc9855df4cd4300f`
+          "https://newsapi.org/v2/top-headlines?country=us&apiKey=f8f710d32e374f64bc9855df4cd4300f",
+          {
+            params: {
+              category: "technology",
+            },
+          }
         );
         setnews(response?.data?.articles);
 
