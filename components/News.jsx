@@ -1,8 +1,12 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, Pressable } from "react-native";
+import * as WebBrowser from "expo-web-browser";
 
-const News = ({ author, urlToImage, publishedAt, title, description }) => {
+const News = ({ author, urlToImage, publishedAt, title, description, url }) => {
+  const openLink = async () => {
+    await WebBrowser.openBrowserAsync(url);
+  };
   return (
-    <View style={styles.Container}>
+    <Pressable onPress={openLink} style={styles.Container}>
       <View>
         <Image
           style={styles.Imagestyle}
@@ -11,7 +15,7 @@ const News = ({ author, urlToImage, publishedAt, title, description }) => {
           }}
         />
       </View>
-      <View>
+      <View style={{ padding: 10 }}>
         <Text style={styles.Title}>{title}</Text>
         <Text>{`${description.substring(0, 200)}..`}</Text>
         <View style={styles.By}>
@@ -21,7 +25,7 @@ const News = ({ author, urlToImage, publishedAt, title, description }) => {
           </Text>
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 };
 
@@ -31,7 +35,7 @@ const styles = StyleSheet.create({
   Container: {
     width: "90%",
     gap: 20,
-    padding: 10,
+
     alignSelf: "center",
     marginVertical: 10,
     borderRadius: 10,

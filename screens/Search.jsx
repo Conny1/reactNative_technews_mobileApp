@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 30,
+    marginTop: 10,
     borderRadius: 10,
   },
 });
